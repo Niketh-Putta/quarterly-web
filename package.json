@@ -4,8 +4,12 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "sync:secrets": "mkdir -p public/supabase && cp supabase/secrets.js public/supabase/secrets.js",
+    "predev": "npm run sync:secrets",
     "dev": "vite",
+    "prebuild": "npm run sync:secrets",
     "build": "vite build",
+    "postbuild": "test -f dist/supabase/secrets.js",
     "preview": "vite preview"
   },
   "dependencies": {

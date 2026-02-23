@@ -99,6 +99,13 @@ p {
   color: #475569;
 }
 
+.nav-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.25rem 0.15rem;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -108,6 +115,7 @@ p {
   font-family: inherit;
   font-size: 1rem;
   font-weight: 700;
+  min-height: 44px;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -197,6 +205,7 @@ p {
   border-radius: 12px;
   padding: 0.88rem 0.92rem;
   font: inherit;
+  min-height: 44px;
 }
 
 .waitlist-form input[type="email"]:focus {
@@ -536,7 +545,7 @@ p {
 }
 
 .mtd-law-copy h2 {
-  font-size: 34px;
+  font-size: clamp(28px, 3.4vw, 34px);
   line-height: 1.14;
   letter-spacing: -0.015em;
   font-weight: 800;
@@ -753,7 +762,7 @@ p {
 .solo-title {
   position: relative;
   display: inline-block;
-  font-size: 32px;
+  font-size: clamp(26px, 3vw, 32px);
   line-height: 1.14;
   letter-spacing: -0.015em;
   font-weight: 800;
@@ -1009,7 +1018,7 @@ p {
 }
 
 .final-wrap h2 {
-  font-size: 32px;
+  font-size: clamp(26px, 3vw, 32px);
   line-height: 1.18;
   letter-spacing: -0.02em;
   font-weight: 800;
@@ -1122,7 +1131,30 @@ html.has-reveal .reveal.is-visible {
   border: 0;
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1024px) {
+  .section {
+    padding: 76px 0;
+  }
+
+  .hero {
+    padding-top: 60px;
+    padding-bottom: 54px;
+  }
+
+  .hero-grid {
+    gap: 1.4rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.75rem, 6.4vw, 4.2rem);
+  }
+
+  .hero-subhead {
+    font-size: 1.06rem;
+  }
+}
+
+@media (max-width: 768px) {
   .nav-links {
     display: none;
   }
@@ -1137,37 +1169,11 @@ html.has-reveal .reveal.is-visible {
   }
 
   .hero-grid,
-  .urgency-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .mtd-law {
-    padding-top: 54px;
-    padding-bottom: 58px;
-  }
-
-  .mtd-law-grid {
-    grid-template-columns: 1fr;
-    gap: 1.1rem;
-  }
-
-  .what-does {
-    padding-top: 62px;
-    padding-bottom: 66px;
-  }
-
+  .urgency-grid,
+  .mtd-law-grid,
   .what-does-grid {
     grid-template-columns: 1fr;
     gap: 1.1rem;
-  }
-
-  .mtd-law-copy h2 {
-    font-size: 28px;
-  }
-
-  .solo-title {
-    font-size: 28px;
   }
 
   .solo-grid {
@@ -1182,17 +1188,14 @@ html.has-reveal .reveal.is-visible {
     transform: none;
   }
 
-  .law-block p {
-    font-size: 16px;
-  }
-
   .hero-copy {
     padding-left: 0;
   }
 
   .hero h1 {
-    max-width: 12ch;
-    font-size: clamp(2.35rem, 12vw, 3.35rem);
+    max-width: 14ch;
+    font-size: clamp(2.1rem, 10.2vw, 3.05rem);
+    padding-right: 0.25rem;
   }
 
   .hero-subhead {
@@ -1211,6 +1214,35 @@ html.has-reveal .reveal.is-visible {
   .hero-overlap {
     margin-left: 0.6rem;
     margin-top: -14px;
+    max-width: calc(100% - 1.2rem);
+  }
+
+  .deadline-header h2 {
+    font-size: clamp(22px, 6.2vw, 26px);
+  }
+
+  .urgency-copy h2 {
+    font-size: clamp(1.55rem, 7vw, 2.35rem);
+  }
+
+  .mtd-law-copy h2 {
+    font-size: clamp(22px, 6vw, 26px);
+  }
+
+  .solo-title {
+    font-size: clamp(22px, 6vw, 26px);
+  }
+
+  .switch-title {
+    font-size: clamp(1.55rem, 6.5vw, 2rem);
+  }
+
+  .what-does-head h2 {
+    font-size: clamp(1.45rem, 6.6vw, 2rem);
+  }
+
+  .who-text h2 {
+    font-size: clamp(1.4rem, 6.4vw, 2rem);
   }
 
   .urgency {
@@ -1263,10 +1295,6 @@ html.has-reveal .reveal.is-visible {
     padding: 0.9rem 0.9rem;
   }
 
-  .rail-item strong {
-    font-size: 1.08rem;
-  }
-
   .who {
     padding-top: 34px;
     padding-bottom: 72px;
@@ -1283,11 +1311,28 @@ html.has-reveal .reveal.is-visible {
   }
 
   .final-wrap h2 {
-    font-size: 28px;
+    font-size: clamp(22px, 6.4vw, 26px);
   }
 
   .final-form-shell {
     padding: 0.9rem;
+  }
+
+  .waitlist-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .waitlist-form input[type="email"] {
+    min-width: 100%;
+  }
+
+  .hero-copy .waitlist-form .btn,
+  .final-form-shell .waitlist-form .btn,
+  .switch-inner > .btn,
+  .what-does-steps .btn,
+  .deadline .btn {
+    width: 100%;
   }
 
   .waitlist-form--final .final-field {
@@ -1297,8 +1342,19 @@ html.has-reveal .reveal.is-visible {
   .waitlist-form--final .final-action {
     min-width: 100%;
   }
+}
 
-  .waitlist-form input[type="email"] {
-    min-width: 100%;
+@media (max-width: 375px) {
+  body::before,
+  body::after {
+    display: none;
+  }
+
+  .hero-overlap {
+    display: none;
+  }
+
+  .mock-totals {
+    display: none;
   }
 }
