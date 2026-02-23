@@ -5,14 +5,22 @@ document.documentElement.classList.add("has-reveal");
 
 const supabaseUrl = window.QUARTERLY_SUPABASE_URL || "YOUR_SUPABASE_URL";
 const supabaseAnonKey = window.QUARTERLY_SUPABASE_ANON_KEY || "YOUR_SUPABASE_ANON_KEY";
+const fallbackSupabaseUrl = "https://jbjxjpuefkeiltjlltzd.supabase.co";
+const fallbackSupabaseAnonKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpianhqcHVlZmtlaWx0amxsdHpkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE4NDA2OTIsImV4cCI6MjA4NzQxNjY5Mn0.nHVMeZOSH37pKhDuw7YoAj6WQZhnNcED3_ocTKi66Lk";
+
+const resolvedSupabaseUrl = supabaseUrl.includes("YOUR_SUPABASE_URL") ? fallbackSupabaseUrl : supabaseUrl;
+const resolvedSupabaseAnonKey = supabaseAnonKey.includes("YOUR_SUPABASE_ANON_KEY")
+  ? fallbackSupabaseAnonKey
+  : supabaseAnonKey;
 
 const isConfigured =
-  supabaseUrl &&
-  supabaseAnonKey &&
-  !supabaseUrl.includes("YOUR_SUPABASE_URL") &&
-  !supabaseAnonKey.includes("YOUR_SUPABASE_ANON_KEY");
+  resolvedSupabaseUrl &&
+  resolvedSupabaseAnonKey &&
+  !resolvedSupabaseUrl.includes("YOUR_SUPABASE_URL") &&
+  !resolvedSupabaseAnonKey.includes("YOUR_SUPABASE_ANON_KEY");
 
-const client = isConfigured ? createClient(supabaseUrl, supabaseAnonKey) : null;
+const client = isConfigured ? createClient(resolvedSupabaseUrl, resolvedSupabaseAnonKey) : null;
 const forms = document.querySelectorAll(".waitlist-form");
 const revealNodes = document.querySelectorAll(".reveal");
 const faqTriggers = document.querySelectorAll(".faq-trigger");
