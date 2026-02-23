@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260223-5" />
+    <link rel="stylesheet" href="styles.css?v=20260223-6" />
   </head>
   <body>
     <nav class="site-nav">
@@ -70,27 +70,46 @@
         </div>
       </section>
 
-      <section id="why-now" class="urgency section">
-        <div class="container urgency-grid">
-          <div class="urgency-copy reveal">
-            <h2>Why this matters now</h2>
-            <p>From 2026 if you earn over GBP 50k.</p>
-            <p>From 2027 if you earn over GBP 30k.</p>
-            <p class="urgency-line">Most people only realise this when their first deadline hits.</p>
+      <section id="why-now" class="deadline section" aria-labelledby="deadline-title">
+        <div class="container deadline-inner">
+          <header class="deadline-header reveal">
+            <h2 id="deadline-title">Your first quarterly deadline is closer than you think.</h2>
+            <p class="deadline-lead">Most people only realise this when their first deadline hits.</p>
+          </header>
+
+          <div class="deadline-timeline reveal" role="list" aria-label="Quarterly reporting timeline">
+            <div class="deadline-node" role="listitem">
+              <span class="deadline-dot" aria-hidden="true"></span>
+              <div class="deadline-block">
+                <p class="deadline-label">Now</p>
+                <p class="deadline-text">Still using notes or Excel.</p>
+              </div>
+            </div>
+
+            <div class="deadline-node" role="listitem">
+              <span class="deadline-dot" aria-hidden="true"></span>
+              <div class="deadline-block">
+                <p class="deadline-label">April 2026</p>
+                <p class="deadline-text">Quarterly reporting starts for &pound;50k+ earners.</p>
+              </div>
+            </div>
+
+            <div class="deadline-node" role="listitem">
+              <span class="deadline-dot" aria-hidden="true"></span>
+              <div class="deadline-block">
+                <p class="deadline-label">April 2027</p>
+                <p class="deadline-text">Expands to &pound;30k+ earners.</p>
+              </div>
+            </div>
           </div>
 
-          <div class="urgency-rail reveal">
-            <p class="rail-label">MTD timeline</p>
-            <div class="rail-item">
-              <strong>2026</strong>
-              <span>Quarterly updates apply from GBP 50k+</span>
-            </div>
-            <div class="rail-item">
-              <strong>2027</strong>
-              <span>Quarterly updates apply from GBP 30k+</span>
-            </div>
-            <p class="rail-note">4 deadlines every year, not one.</p>
+          <p class="deadline-strong reveal"><strong>That&rsquo;s 4 tax deadlines every year.</strong></p>
+
+          <div class="deadline-warning reveal" role="note">
+            Waiting means scrambling later. Quarterly helps you stay organised before it becomes mandatory.
           </div>
+
+          <a href="#waitlist" class="btn btn-primary reveal">Start free early access</a>
         </div>
       </section>
 
@@ -363,17 +382,31 @@
 
     <footer id="waitlist" class="final-cta section">
       <div class="container final-wrap reveal">
-        <h2>Start now before your first quarterly deadline gets close.</h2>
-        <form class="waitlist-form" data-source="footer" novalidate>
-          <label class="sr-only" for="footer-email">Email address</label>
-          <input id="footer-email" name="email" type="email" placeholder="your best email" required />
-          <input class="hp-field" name="company" type="text" tabindex="-1" autocomplete="off" />
-          <button type="submit" class="btn btn-primary" data-default-label="Start free early access">
-            Start free early access
-          </button>
-          <p class="input-note">Used by freelancers &amp; sole traders preparing for MTD.</p>
-          <p class="form-status" aria-live="polite"></p>
-        </form>
+        <h2>Be ready before quarterly tax hits.</h2>
+        <p class="final-subtext">Join early access and get organised before your first deadline.</p>
+
+        <div class="final-form-shell">
+          <form class="waitlist-form waitlist-form--final" data-source="footer" novalidate>
+            <div class="final-field">
+              <label class="sr-only" for="footer-email">Email address</label>
+              <input id="footer-email" name="email" type="email" placeholder="your best email" required />
+              <p class="input-note input-note--micro">Used by freelancers, tutors &amp; landlords preparing for MTD.</p>
+            </div>
+
+            <input class="hp-field" name="company" type="text" tabindex="-1" autocomplete="off" />
+
+            <div class="final-action">
+              <button type="submit" class="btn btn-primary" data-default-label="Start free early access">
+                Start free early access
+              </button>
+              <p class="final-button-note">No card required. Cancel anytime.</p>
+            </div>
+
+            <p class="form-status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <p class="final-trust">Built for UK sole traders. Your data stays private.</p>
       </div>
     </footer>
 
